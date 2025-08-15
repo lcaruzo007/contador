@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador 365 Dias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗓️ Contador de 365 Dias</h1>
+            <p class="subtitle">Contagem contínua diária</p>
+        </header>
+
+        <main>
+            <div class="datetime-display">
+                <div class="current-time">
+                    <h2 id="currentTime">--:--:--</h2>
+                    <p id="currentDate">-- de ---- de ----</p>
+                </div>
+            </div>
+
+            <div class="counter-display">
+                <div class="counter-card">
+                    <h3>Dia Atual</h3>
+                    <div class="counter-number" id="currentDay">1</div>
+                    <p>de 365 dias</p>
+                </div>
+
+                <div class="counter-card">
+                    <h3>Dias Restantes</h3>
+                    <div class="counter-number remaining" id="remainingDays">359</div>
+                    <p>para completar</p>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>Progresso</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="progress-text">
+                    <span id="progressPercent">0.28%</span> concluído
+                </p>
+            </div>
+
+            <div class="milestone-section">
+                <h3>Próximos Marcos</h3>
+                <div class="milestones" id="milestones">
+                    <!-- Marcos serão adicionados aqui via JavaScript -->
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <h4>📅 Data de Início</h4>
+                    <p id="startDate">--</p>
+                </div>
+                <div class="info-card">
+                    <h4>🎯 Data Final</h4>
+                    <p id="endDate">--</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="resetBtn" class="btn-reset">🔄 Reiniciar Contador</button>
+                <button id="pauseBtn" class="btn-pause">⏸️ Pausar</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Contador iniciado automaticamente • Atualização em tempo real</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
