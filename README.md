@@ -1,4 +1,4 @@
-# 🗓️ Contador Diário de 360 Dias
+# 🗓️ Contador Diário de 365 Dias
 
 Um contador automático que funciona continuamente por 365 dias, exibindo horário e data no formato brasileiro (pt-BR).
 
@@ -42,11 +42,11 @@ Um contador automático que funciona continuamente por 365 dias, exibindo horár
 - **180 dias**: 6 Meses 🎊
 - **240 dias**: 8 Meses 🔥
 - **300 dias**: 10 Meses 💎
-- **360 dias**: Conclusão! 🎉
+- **365 dias**: Conclusão! 🎉
 
 ### Informações
 - **Data de Início**: Quando o contador foi iniciado
-- **Data Final**: Previsão de conclusão dos 360 dias
+- **Data Final**: Previsão de conclusão dos 365 dias
 
 ## 🔧 Controles
 
@@ -121,7 +121,7 @@ contadorDebug.info();
 - **Hábitos**: Formar novos hábitos em 365 dias
 - **Metas**: Alcançar objetivos com prazo definido
 - **Estudos**: Cronograma de estudos anuais
-- **Exercícios**: Programa de exercícios de 360 dias
+- **Exercícios**: Programa de exercícios de 365 dias
 - **Dietas**: Acompanhamento de dieta/nutrição
 
 ## 📞 Suporte
