@@ -1,6 +1,6 @@
 # 🗓️ Contador Diário de 360 Dias
 
-Um contador automático que funciona continuamente por 360 dias, exibindo horário e data no formato brasileiro (pt-BR).
+Um contador automático que funciona continuamente por 365 dias, exibindo horário e data no formato brasileiro (pt-BR).
 
 ## ✨ Características
 
@@ -12,7 +12,7 @@ Um contador automático que funciona continuamente por 360 dias, exibindo horár
 - **Barra de Progresso**: Visualização gráfica do progresso
 - **Controles**: Pausar/retomar e reiniciar o contador
 - **Responsivo**: Funciona em desktop, tablet e mobile
-- **Notificações**: Alerta quando completa os 360 dias
+- **Notificações**: Alerta quando completa os 365 dias
 
 ## 🚀 Como Usar
 
@@ -27,7 +27,7 @@ Um contador automático que funciona continuamente por 360 dias, exibindo horár
 - **Horário Atual**: Atualizado em tempo real
 - **Data Atual**: Formato brasileiro completo
 - **Dia Atual**: Qual dia da contagem você está
-- **Dias Restantes**: Quantos dias faltam para 360
+- **Dias Restantes**: Quantos dias faltam para 365
 
 ### Seção de Progresso
 - **Barra Visual**: Mostra percentual concluído
@@ -118,7 +118,7 @@ contadorDebug.info();
 ## 🎯 Casos de Uso
 
 - **Projetos**: Acompanhar progresso de projetos de longo prazo
-- **Hábitos**: Formar novos hábitos em 360 dias
+- **Hábitos**: Formar novos hábitos em 365 dias
 - **Metas**: Alcançar objetivos com prazo definido
 - **Estudos**: Cronograma de estudos anuais
 - **Exercícios**: Programa de exercícios de 360 dias
