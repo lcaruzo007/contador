@@ -175,16 +175,15 @@ class ContadorDiario {
 
     startCounter() {
         // Atualiza a cada segundo
+        let lastDay = this.calculateCurrentDay();
         this.intervalId = setInterval(() => {
             this.updateDateTime();
-            
-            // Atualiza o contador a cada minuto para verificar mudança de dia
-            const now = new Date();
-            if (now.getSeconds() === 0) {
+            const currentDay = this.calculateCurrentDay();
+            if (currentDay !== lastDay) {
+                lastDay = currentDay;
                 this.updateDisplay();
             }
         }, 1000);
-        
         // Solicita permissão para notificações
         if ('Notification' in window && Notification.permission === 'default') {
             Notification.requestPermission();
@@ -228,9 +227,68 @@ class ContadorDiario {
         localStorage.setItem('contador_current_day', this.currentDay.toString());
     }
 
+    exportData() {
+        const data = {
+            startDate: this.startDate.toISOString(),
+            currentDay: this.currentDay,
+            totalDays: this.totalDays,
+            exportDate: new Date().toISOString(),
+            version: '1.0'
+        };
+        
+        const dataStr = JSON.stringify(data, null, 2);
+        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+        
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(dataBlob);
+        link.download = `contador-backup-${new Date().toISOString().split('T')[0]}.json`;
+        link.click();
+        
+        alert('✅ Backup salvo! Use este arquivo no outro PC para restaurar seu progresso.');
+    }
+
+    importData() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        
+        input.onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        
+                        if (data.startDate && data.totalDays) {
+                            this.startDate = new Date(data.startDate);
+                            this.totalDays = data.totalDays;
+                            this.currentDay = this.calculateCurrentDay();
+                            
+                            this.saveToLocalStorage();
+                            this.updateDisplay();
+                            this.updateDateTime();
+                            
+                            alert('✅ Dados importados com sucesso! Seu contador foi restaurado.');
+                        } else {
+                            alert('❌ Arquivo inválido. Selecione um backup válido do contador.');
+                        }
+                    } catch (error) {
+                        alert('❌ Erro ao ler o arquivo. Verifique se é um backup válido.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        };
+        
+        input.click();
+    }
+
     setupEventListeners() {
         document.getElementById('resetBtn').addEventListener('click', () => this.reset());
         document.getElementById('pauseBtn').addEventListener('click', () => this.pause());
+        document.getElementById('exportBtn').addEventListener('click', () => this.exportData());
+        document.getElementById('importBtn').addEventListener('click', () => this.importData());
         
         // Salva o estado quando a página for fechada
         window.addEventListener('beforeunload', () => this.saveToLocalStorage());
